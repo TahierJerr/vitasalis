@@ -32,21 +32,24 @@ const InschrijvenPage = () => {
                                 <Input label='Achternaam' placeholder='Modaal' labelPlacement='outside' isRequired />
                             </div>
                         </div>
-                        <div>
-                            <Input
-                                className='w-full'
-                                label='BSN Nummer'
-                                placeholder='123456789'
-                                labelPlacement='outside'
-                                isRequired
-                                type='number'
-                            />
-                        </div>
+                        
                         <div>
                             <Select label='Geslacht' labelPlacement='outside' placeholder='Man' isRequired items={geslacht}>
                                 {(geslacht) => <SelectItem key={geslacht.label}>{geslacht.label}</SelectItem>}
                             </Select>
                         </div>
+                        <div>
+                            <DatePicker
+                                showMonthAndYearPickers
+                                isRequired
+                                label='Geboortedatum'
+                                placeholderValue={today(getLocalTimeZone()).subtract({ years: 42 })}
+                                maxValue={today(getLocalTimeZone()).subtract({ years: 14 })}
+                                labelPlacement='outside'
+                                startContent={<CakeIcon size={20} />}
+                                fullWidth
+                            />
+                        </div>   
                         <div>
                             <Input
                                 startContent={<MailIcon size={20} className='text-gray-400' />}
@@ -65,18 +68,6 @@ const InschrijvenPage = () => {
                                 labelPlacement='outside'
                                 label='Telefoonnummer'
                                 isRequired
-                            />
-                        </div>
-                        <div>
-                            <DatePicker
-                                showMonthAndYearPickers
-                                isRequired
-                                label='Geboortedatum'
-                                placeholderValue={today(getLocalTimeZone()).subtract({ years: 42 })}
-                                maxValue={today(getLocalTimeZone()).subtract({ years: 14 })}
-                                labelPlacement='outside'
-                                startContent={<CakeIcon size={20} />}
-                                className='w-full'
                             />
                         </div>
                         <div className='mt-4'>
