@@ -3,11 +3,10 @@
 import { Button } from '@nextui-org/button';
 import { PhoneCallIcon } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React from 'react'
 
-const page = () => {
+const DienstPage = () => {
     
     const params = useParams();
     
@@ -94,10 +93,12 @@ const page = () => {
                 <p>Bel ons via dit nummer of druk op het contact knopje om een bericht achter te laten.</p>
                 <a className='underline underline-offset-2 cursor-pointer' href={`tel: ${data.tel}`}>{data.tel}</a>
                 <Button className='flex items-center justify-center rounded-lg px-4 py-2 gap-2 mt-4 bg-red-600 text-white w-full'><PhoneCallIcon size={20} />Contact</Button>
+                <p>Of ga naar de website</p>
+                <a className='underline underline-offset-2 cursor-pointer' href={data.externalLink}>{data.externalLink}</a>
             </div>
         </div>
     </div>
     )
 }
 
-export default page
+export default DienstPage
